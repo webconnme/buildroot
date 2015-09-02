@@ -2,6 +2,7 @@
 
 start() {
   echo -n "Starting webconn daemon: "
+  chgrp dialout /dev/ttyS1
   start-stop-daemon -S -m -b -q -p /var/run/webconn.pid --exec /webconn/bin/launcher
   [ $? = 0 ] && echo "OK" || echo "FAIL"
 }
