@@ -13,3 +13,5 @@
 *.rej
 *~
 *.pyc
+src_ramdisk/
+ramdisk*.gz
