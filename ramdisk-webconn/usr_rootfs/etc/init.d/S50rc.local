@@ -1,17 +1,2 @@
 #!/bin/sh -e
 #
-USB_AUTO_SH=/mnt/usb/run.sh
-
-echo "USB check!!!!!!!"
-
-##usb auto run
-if [ -d /sys/block/sda ]; then
-   mount -t vfat /dev/sda1 /mnt/usb
-
-   if [ -f $USB_AUTO_SH ]; then
-	 echo "run falinux usb auto script..........."
-	 sh $USB_AUTO_SH
-	 echo "...end usb script"
-   fi
-fi
-

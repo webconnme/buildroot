@@ -36,11 +36,6 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Broadcast</label>
-                                            <input class="form-control" name="eth0-broadcast" id="eth0-broadcast" placeholder="192.168.255.255">
-                                        </div>
-
-                                        <div class="form-group">
                                             <label>Gateway</label>
                                             <input class="form-control" name="eth0-gateway" id="eth0-gateway" placeholder="255.255.255.0">
                                         </div>
@@ -72,15 +67,20 @@
 var initValue = function(name) {
   $.get("/ethernet/eth0", function(data) {
     var config = JSON.parse(data);
-    if (config.method === 'dhcp') {
-      $("#" + name + "-method-dhcp").prop("checked", true);
-    } else if (config.method === 'static') {
-      $("#" + name + "-method-static").prop("checked", true);
-    }
+
     for (var k in config) {
-      $("#" + name + "-" + k).val(config[k]);
+      switch (k.toLowerCase())  {
+        case "method":
+          $("#" + name.toLowerCase() + "-method-" + config[k].toLowerCase()).prop("checked", true);
+          break;
+        case "dns":
+          $("#" + name.toLowerCase() + "-dns").val(config[k]);
+          break;
+        default:
+          $("#" + name.toLowerCase() + "-" + k.toLowerCase()).val(config[k]);
+          break;
+      }
     }
-    $("#" + name + "-dns").val(config["dns"].join(","));
   });
 }
 
