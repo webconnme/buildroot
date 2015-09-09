@@ -12,7 +12,7 @@ mke2fs     /dev/loop0
 mkdir -p $MNTDIR
 mount -t ext2 -o loop /dev/loop0 $MNTDIR 
 #rm -rf src_ramdisk/*
-tar xf ../buildroot-2015.05/output/images/rootfs.tar -C $TGTDIR
+tar xf ../output/images/rootfs.tar -C $TGTDIR
 
 # file remove
 rm -rf $TGTDIR/usr/share/locale 
