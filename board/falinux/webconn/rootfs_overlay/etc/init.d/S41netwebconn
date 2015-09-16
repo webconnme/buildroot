@@ -16,7 +16,7 @@ case "$1" in
 	   sh $NET_CFG_FILE
 	else
 	   echo "WebConn default ip set........"
-	   ifconfig eth0 192.168.2.204 netmask 255.255.0.0 up
+	   ifconfig eth0 192.168.10.232 netmask 255.255.0.0 up
 	fi
 	;;
   stop)
