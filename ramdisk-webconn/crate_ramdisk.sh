@@ -16,6 +16,7 @@ tar xf ../output/images/rootfs.tar -C $TGTDIR
 
 # file remove
 rm -rf $TGTDIR/usr/share/locale 
+rm -rf $TGTDIR/home/rs232 
 rm -rf $TGTDIR/webconn/cfg
 rm -rf $TGTDIR/webconn/bin
 rm -rf $TGTDIR/etc/init.d/S50dropbear
